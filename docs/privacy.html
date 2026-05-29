@@ -15,6 +15,9 @@
   a { color: #5d6df6; }
   .lang { display: flex; gap: 12px; margin-bottom: 16px; font-size: 0.92rem; }
   .lang a { text-decoration: none; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.95rem; }
+  th, td { border: 1px solid #e5e7f0; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f3f5fb; font-weight: 600; }
 </style>
 </head>
 <body>
@@ -27,35 +30,67 @@
 <h1>개인정보처리방침</h1>
 <p class="meta">최종 업데이트: 2026년 5월 29일 · 앱: 자음 맞추기 (com.fadak.jaeumescape)</p>
 
-<h2>1. 수집하는 정보</h2>
-<p><strong>자음 맞추기는 사용자의 개인정보를 서버로 전송하거나 수집하지 않습니다.</strong></p>
+<h2>1. 요약</h2>
+<p>자음 맞추기는 자체 서버를 운영하지 않으며, 게임 진행도는 사용자 기기에만 저장됩니다. 다만 사용자가 <strong>선택적으로</strong> 사용하는 두 가지 기능 — <strong>Google 계정 연결</strong>과 <strong>인앱 구매(광고 제거)</strong> — 에서는 Google이 일부 정보를 처리합니다. 본 정책은 이 부분을 명확히 설명합니다.</p>
+
+<h2>2. 기기 내 저장 (수집·전송 없음)</h2>
 <ul>
-  <li>회원가입, 로그인이 없습니다.</li>
-  <li>게임 진행도(레벨, 클리어 기록, 설정)는 사용자 기기 내부 저장소(AsyncStorage)에만 보관됩니다.</li>
-  <li>이름, 이메일, 위치, 연락처, 사진, 식별자 등을 수집하지 않습니다.</li>
+  <li>게임 진행도 (레벨, 클리어 기록, 일일 트로피 기록)</li>
+  <li>설정 (언어, 다크 모드, 진동, 사운드, 알림 시간)</li>
+  <li>튜토리얼 완료 여부</li>
+</ul>
+<p>위 정보는 AsyncStorage(기기 내부 저장소)에만 보관되며, 어떤 서버로도 전송되지 않습니다. 앱을 삭제하면 함께 삭제됩니다.</p>
+
+<h2>3. 선택적 기능 — Google 계정 연결</h2>
+<p>설정 → '계정 연결'에서 Google 로그인을 사용하면 Google이 다음 정보를 자음 맞추기에 제공합니다.</p>
+<table>
+  <tr><th>항목</th><th>용도</th><th>저장 위치</th></tr>
+  <tr><td>이메일 주소</td><td>설정 화면에서 연결된 계정 표시</td><td>기기 내부 (AsyncStorage)</td></tr>
+  <tr><td>이름 / 프로필 사진 / Google 사용자 ID</td><td>현재 버전에서는 사용하지 않음 (향후 클라우드 진행도 동기화에 사용 예정)</td><td>기기 내부 (AsyncStorage)</td></tr>
+</table>
+<p>이 정보는 자체 서버로 전송되지 않습니다. 로그인 과정 자체는 Google이 처리하며, Google의 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">개인정보처리방침</a>이 적용됩니다. 사용자는 언제든 '계정 연결 해제'로 기기에 저장된 계정 정보를 삭제할 수 있습니다.</p>
+
+<h2>4. 선택적 기능 — 인앱 구매 (광고 제거)</h2>
+<p>설정 → '광고 제거' 구매 시 Google Play 결제 시스템(Play Billing)이 결제를 처리합니다.</p>
+<ul>
+  <li>자음 맞추기는 결제 카드 번호, 청구지 주소 등 결제 정보를 받지 않습니다. 모두 Google이 직접 처리합니다.</li>
+  <li>구매 완료 후 Google이 발급하는 <strong>구매 토큰</strong>만 받아, '광고 제거를 보유한 사용자인지' 확인하는 용도로 사용합니다.</li>
+  <li>구매 토큰과 보유 여부는 기기 내부에 저장되며, 자체 서버로 전송되지 않습니다.</li>
+  <li>'구매 복원' 시 Google Play에 이 사용자의 보유 상품을 질의해 광고 제거 상태를 복원합니다.</li>
 </ul>
 
-<h2>2. 권한 사용</h2>
+<h2>5. 권한</h2>
+<table>
+  <tr><th>권한</th><th>용도</th></tr>
+  <tr><td>VIBRATE (진동)</td><td>게임 내 햅틱 피드백</td></tr>
+  <tr><td>POST_NOTIFICATIONS (알림)</td><td>사용자가 설정에서 ON으로 한 경우에만 매일 한 번 기기 내부 로컬 알림</td></tr>
+  <tr><td>INTERNET</td><td>Google 로그인 / Play Billing 호출 시에만 사용 (자체 서버 통신 없음)</td></tr>
+</table>
+
+<h2>6. 광고 / 분석</h2>
+<p>현재 버전에는 광고 SDK 및 분석 SDK가 포함되어 있지 않습니다. 추후 광고가 도입될 경우 본 페이지를 갱신하고 광고 SDK가 수집하는 정보를 별도로 안내합니다.</p>
+
+<h2>7. 제3자 처리자</h2>
 <ul>
-  <li><strong>진동(VIBRATE)</strong>: 게임 내 햅틱 피드백.</li>
-  <li><strong>알림(POST_NOTIFICATIONS)</strong>: 사용자가 설정에서 ON으로 한 경우에만, 매일 한 번 로컬 알림을 표시합니다. 알림은 기기 내부에서 스케줄링되며 서버를 거치지 않습니다.</li>
+  <li><strong>Google LLC</strong> — Google 로그인 및 Google Play 결제 처리. 적용 정책: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a></li>
 </ul>
 
-<h2>3. 광고 / 분석</h2>
-<p>현재 버전에는 광고 SDK 및 분석 SDK가 포함되어 있지 않습니다. 추후 광고가 도입될 경우 본 페이지를 갱신합니다.</p>
-
-<h2>4. 제3자 제공</h2>
-<p>수집하는 정보가 없으므로 제3자에게 제공되는 정보 또한 없습니다.</p>
-
-<h2>5. 어린이 보호</h2>
+<h2>8. 어린이 보호</h2>
 <p>본 앱은 13세 이상 사용자를 대상으로 합니다. 어린이의 개인정보를 의도적으로 수집하지 않습니다.</p>
 
-<h2>6. 데이터 보관 및 삭제</h2>
-<p>모든 게임 데이터는 기기 내부에 저장됩니다. 앱을 삭제하면 모든 데이터가 함께 삭제됩니다.</p>
+<h2>9. 데이터 보관 및 삭제</h2>
+<ul>
+  <li>기기 내 데이터: 앱 삭제 시 즉시 삭제</li>
+  <li>Google 로그인 정보: 설정에서 '계정 연결 해제' 시 기기 내 저장된 정보 즉시 삭제. Google 계정 자체 데이터 삭제는 <a href="https://myaccount.google.com" target="_blank" rel="noopener">Google 계정 관리</a>에서 가능</li>
+  <li>구매 내역: Google Play에 영구 보관 (Google 정책에 따름). 자음 맞추기는 기기 내부 보유 플래그만 삭제 가능</li>
+</ul>
 
-<h2>7. 문의</h2>
-<p>본 정책에 대한 문의는 다음 이메일로 연락해주세요.<br/>
-<a href="mailto:minwookeyboard@gmail.com">minwookeyboard@gmail.com</a></p>
+<h2>10. 정책 변경</h2>
+<p>중요한 변경이 있을 경우 본 페이지의 '최종 업데이트' 일자가 갱신됩니다. 앱 내 '개인정보 보호' 항목으로 항상 최신 버전을 확인할 수 있습니다.</p>
+
+<h2>11. 문의</h2>
+<p>본 정책 또는 개인정보 처리에 대한 문의:<br/>
+<a href="mailto:devfadakworld@gmail.com">devfadakworld@gmail.com</a></p>
 </section>
 
 <hr style="margin: 48px 0; border: none; border-top: 1px solid #e5e7f0;" />
@@ -64,35 +99,67 @@
 <h1>Privacy Policy</h1>
 <p class="meta">Last updated: May 29, 2026 · App: Jaeum Escape (com.fadak.jaeumescape)</p>
 
-<h2>1. Information We Collect</h2>
-<p><strong>Jaeum Escape does not collect or transmit any personal information.</strong></p>
+<h2>1. Summary</h2>
+<p>Jaeum Escape does not operate its own server, and game progress is stored only on your device. However, two <strong>optional</strong> features &mdash; <strong>Google Account sign-in</strong> and <strong>in-app purchase (remove ads)</strong> &mdash; involve data processing by Google. This policy makes those parts explicit.</p>
+
+<h2>2. On-device storage (no collection or transmission)</h2>
 <ul>
-  <li>No account creation or login.</li>
-  <li>Game progress (level, clears, settings) is stored only in your device's local storage (AsyncStorage).</li>
-  <li>We do not collect names, emails, locations, contacts, photos, or identifiers.</li>
+  <li>Game progress (level, clear history, daily trophies)</li>
+  <li>Settings (language, dark mode, vibration, sound, notification time)</li>
+  <li>Tutorial completion flag</li>
+</ul>
+<p>The above is stored only in AsyncStorage (local device storage) and is never sent to any server. Deleting the app removes it all.</p>
+
+<h2>3. Optional feature &mdash; Google Sign-In</h2>
+<p>When you tap Settings &rarr; &lsquo;Connect Account&rsquo; and sign in with Google, Google provides the following to Jaeum Escape:</p>
+<table>
+  <tr><th>Item</th><th>Purpose</th><th>Storage</th></tr>
+  <tr><td>Email address</td><td>Display the connected account on the Settings screen</td><td>Local device (AsyncStorage)</td></tr>
+  <tr><td>Name / profile picture / Google user ID</td><td>Not used in the current version (reserved for future cloud progress sync)</td><td>Local device (AsyncStorage)</td></tr>
+</table>
+<p>This information is not sent to any server we operate. The sign-in flow itself is handled by Google and is governed by the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>. You can remove the locally stored account info anytime by tapping &lsquo;Disconnect Account&rsquo;.</p>
+
+<h2>4. Optional feature &mdash; In-App Purchase (Remove Ads)</h2>
+<p>When you purchase &lsquo;Remove Ads&rsquo;, Google Play Billing handles the transaction.</p>
+<ul>
+  <li>Jaeum Escape never receives card numbers, billing addresses, or other payment details &mdash; Google handles all of that directly.</li>
+  <li>We only receive the <strong>purchase token</strong> Google issues after a successful purchase, and we use it solely to determine whether the user owns the &lsquo;Remove Ads&rsquo; product.</li>
+  <li>The token and the ownership flag are stored locally on the device and are not sent to any server we operate.</li>
+  <li>When you tap &lsquo;Restore Purchases&rsquo;, we query Google Play for your owned products to restore the ad-removal state.</li>
 </ul>
 
-<h2>2. Permissions</h2>
+<h2>5. Permissions</h2>
+<table>
+  <tr><th>Permission</th><th>Purpose</th></tr>
+  <tr><td>VIBRATE</td><td>In-game haptic feedback</td></tr>
+  <tr><td>POST_NOTIFICATIONS</td><td>When enabled by the user, a single local daily reminder scheduled on the device</td></tr>
+  <tr><td>INTERNET</td><td>Used only when calling Google Sign-In / Play Billing; no proprietary server is contacted</td></tr>
+</table>
+
+<h2>6. Ads / Analytics</h2>
+<p>The current version contains no advertising or analytics SDK. If ads are introduced later, this page will be updated and any SDK data collection will be disclosed.</p>
+
+<h2>7. Third-Party Processors</h2>
 <ul>
-  <li><strong>VIBRATE</strong>: In-game haptic feedback.</li>
-  <li><strong>POST_NOTIFICATIONS</strong>: When enabled by the user, a single local daily reminder is scheduled on the device. No server is involved.</li>
+  <li><strong>Google LLC</strong> &mdash; Google Sign-In and Google Play Billing. Applicable policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
 </ul>
 
-<h2>3. Ads / Analytics</h2>
-<p>This version does not include any advertising or analytics SDK. This page will be updated if ads are introduced.</p>
-
-<h2>4. Third-Party Sharing</h2>
-<p>Since we do not collect data, no information is shared with third parties.</p>
-
-<h2>5. Children</h2>
+<h2>8. Children</h2>
 <p>This app targets users aged 13+. We do not knowingly collect data from children.</p>
 
-<h2>6. Data Retention &amp; Deletion</h2>
-<p>All game data resides on your device. Deleting the app removes all data.</p>
+<h2>9. Data Retention &amp; Deletion</h2>
+<ul>
+  <li>On-device data: removed immediately when the app is uninstalled.</li>
+  <li>Google sign-in info: removed immediately from the device on &lsquo;Disconnect Account&rsquo;. To delete the underlying Google account data, use <a href="https://myaccount.google.com" target="_blank" rel="noopener">Google Account Management</a>.</li>
+  <li>Purchase records: retained by Google Play under Google&rsquo;s policy. Jaeum Escape can only clear the local ownership flag.</li>
+</ul>
 
-<h2>7. Contact</h2>
-<p>For questions about this policy, contact:<br/>
-<a href="mailto:minwookeyboard@gmail.com">minwookeyboard@gmail.com</a></p>
+<h2>10. Changes to this Policy</h2>
+<p>Material changes will update the &lsquo;Last updated&rsquo; date at the top. The latest version is always reachable via the in-app &lsquo;Privacy&rsquo; row.</p>
+
+<h2>11. Contact</h2>
+<p>Questions about this policy or about how your data is handled:<br/>
+<a href="mailto:devfadakworld@gmail.com">devfadakworld@gmail.com</a></p>
 </section>
 </body>
 </html>
